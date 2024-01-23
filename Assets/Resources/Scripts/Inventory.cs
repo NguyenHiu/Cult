@@ -6,11 +6,12 @@ public class Inventory : MonoBehaviour
 {
     public enum KeyIndex
     {
-        hasDoorKey = 0,
-        hasCarKey = 1,
+        None = 0,
+        hasDoorKey = 1,
+        hasCarKey = 2,
     }
 
-    public bool[] keys = {false, false};
+    public bool[] keys = {true, false, false};
     public void SetKeyAt(KeyIndex index)
     {
         keys[(int)index] = true;

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DriveCar : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class DriveCar : MonoBehaviour
     {
         if (flag && Input.GetButtonDown("Interact"))
         {
-            Debug.Log("Driving car ... ");
+            SceneManager.LoadScene(1);
         }
     }
 
