@@ -9,9 +9,11 @@ public class Inventory : MonoBehaviour
         None = 0,
         hasDoorKey = 1,
         hasCarKey = 2,
+        hasDoor1Key = 3,
+        hasExitDoorKey = 4,
     }
 
-    public bool[] keys = {true, false, false};
+    public bool[] keys = {true, false, false, false, false };
     public void SetKeyAt(KeyIndex index)
     {
         keys[(int)index] = true;

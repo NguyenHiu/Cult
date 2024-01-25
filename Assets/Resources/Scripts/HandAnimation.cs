@@ -1,26 +1,36 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityTutorial.PlayerControl;
 
 public class HandAnimation : MonoBehaviour
 {
     [SerializeField] Animator anim;
+    private FlashlightControl flashlightControl;
     private bool _leftArmActive = false;
     private bool _rightArmActive = false;
+    private bool _isFreezing = false;
 
-    void Start()
+    private void Awake()
     {
-        Debug.Log("Layer LeftArm Index: " + anim.GetLayerIndex("LeftArm"));
-        Debug.Log("Layer RightArm Index: " + anim.GetLayerIndex("RightArm"));
+        flashlightControl = FindAnyObjectByType<FlashlightControl>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Flashlight"))
+        if (!_isFreezing && Input.GetButtonDown("Flashlight"))
         {
             _leftArmActive = !_leftArmActive;
             anim.SetBool("OpenFlashlight", _leftArmActive);
+            if (_leftArmActive )
+            {
+                flashlightControl.TurnOn();
+            } else
+            {
+                flashlightControl.TurnOff();
+            }
             // if (_leftArmActive)
             // {
             //     anim.SetLayerWeight(1, 0);
@@ -34,20 +44,5 @@ public class HandAnimation : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("Pickup"))
-        {
-            anim.SetTrigger("Pickup");
-            // if (_rightArmActive)
-            // {
-            //     anim.SetLayerWeight(2, 0);
-            //     _rightArmActive = false;
-            // }
-            // else
-            // {
-            //     anim.SetLayerWeight(2, 1);
-            //     _rightArmActive = true;
-            // }
-
-        }
     }
 }

@@ -7,6 +7,8 @@ TagManager:
   - player_interact
   - Reach
   - player
+  - hint
+  - object_infor
   layers:
   - Default
   - TransparentFX

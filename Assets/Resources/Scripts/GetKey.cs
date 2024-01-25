@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GetKey : MonoBehaviour
@@ -10,9 +11,11 @@ public class GetKey : MonoBehaviour
 
     private void Update()
     {
-        if (flag && Input.GetButtonDown("Interact"))
+        if (flag && Input.GetButtonDown("Pickup"))
         {
             FindObjectOfType<Inventory>().SetKeyAt(keyIndex);
+            GameObject.FindGameObjectWithTag("hint").GetComponent<TextMeshProUGUI>().text = "";
+            GameObject.FindGameObjectWithTag("object_infor").GetComponent<TextMeshProUGUI>().text = "";
             this.gameObject.SetActive(false);
         }
     }

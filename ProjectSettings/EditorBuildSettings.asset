@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/House.unity
     guid: 37d97149734313145b1dacd30fe9ff7a
   - enabled: 1
+    path: Assets/Scenes/Village.unity
+    guid: 959a7baf2707a4b49856d96379421027
+  - enabled: 0
     path: Assets/Flooded_Grounds/Scenes/Scene_A.unity
     guid: c0d944ca9defd20449bc336e50d75a08
   - enabled: 1

@@ -11,7 +11,8 @@ public class LoadNextScene : MonoBehaviour
         if (other.CompareTag("player"))
         {
             SceneManager.LoadScene(2);
-            other.transform.position = new Vector3((float)690.46, (float)8.82, (float)532.25);
+            other.transform.position = new Vector3(683f, 10f, 532.5f);
+            other.transform.eulerAngles = new Vector3(0f, 90f, 0f);
         }
     }
 

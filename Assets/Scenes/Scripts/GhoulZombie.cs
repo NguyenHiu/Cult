@@ -9,26 +9,21 @@ public class GhoulZombie : MonoBehaviour
     public AudioSource Sound;
     public Animator Animator;
     private NavMeshAgent Agent;
-    private float RoarTimeInterval = 3.0f;
-    private float RoarTimeAcc;
 
     // Start is called before the first frame update
     void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
-        RoarTimeAcc = 0f;
+    }
+
+    private void Awake()
+    {
+        Target = GameObject.FindGameObjectWithTag("player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        RoarTimeAcc += Time.deltaTime;
-        if (RoarTimeAcc >= RoarTimeInterval)
-        {
-            RoarTimeAcc = 0f;
-            Sound.Play();
-        }
-
         if (Agent.enabled)
         {
             Agent.destination = Target.position;

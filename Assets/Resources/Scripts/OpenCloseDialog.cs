@@ -14,7 +14,7 @@ public class OpenCloseDialog : MonoBehaviour
     private void Awake()
     {
         inventory = FindAnyObjectByType<Inventory>();
-        dialog = FindAnyObjectByType<Canvas>().GetComponentInChildren<TextMeshProUGUI>();
+        dialog = GameObject.FindGameObjectWithTag("hint").GetComponent<TextMeshProUGUI>();
     }
 
     private void OnTriggerEnter(Collider other)

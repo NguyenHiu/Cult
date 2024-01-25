@@ -26,6 +26,8 @@ namespace UnityTutorial.PlayerControl
         private const float _runSpeed = 6f;
         private Vector2 _currentVelocity;
 
+        private bool _isFreezing = false;
+
         private void Start()
         {
             _hasAnimator = TryGetComponent<Animator>(out _animator);
@@ -47,6 +49,7 @@ namespace UnityTutorial.PlayerControl
 
         private void Move()
         {
+            if (_isFreezing) return;
             if (!_hasAnimator) return;
 
             float targetSpeed = _inputManager.Run ? _runSpeed : _walkSpeed;
@@ -71,6 +74,11 @@ namespace UnityTutorial.PlayerControl
             var Mouse_X = _inputManager.Look.x;
             var Mouse_Y = _inputManager.Look.y;
             Camera.position = CameraRoot.position;
+            if (_isFreezing)
+            {
+                Mouse_X = 0;
+                Mouse_Y = 0;
+            };
 
 
             _xRotation -= Mouse_Y * MouseSensitivity * Time.smoothDeltaTime;
@@ -78,6 +86,16 @@ namespace UnityTutorial.PlayerControl
 
             Camera.localRotation = Quaternion.Euler(_xRotation, 0, 0);
             _playerRigidbody.MoveRotation(_playerRigidbody.rotation * Quaternion.Euler(0, Mouse_X * MouseSensitivity * Time.smoothDeltaTime, 0));
+        }
+
+        public void Freeze()
+        {
+            _isFreezing = true;
+        }
+
+        public void UnFreeze()
+        {
+            _isFreezing = false;    
         }
     }
 }
