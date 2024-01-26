@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GetKey : MonoBehaviour
 {
+    [SerializeField] AudioSource m_AudioSource;
     public Inventory.KeyIndex keyIndex;
     private bool flag = false;
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class GetKey : MonoBehaviour
     {
         if (flag && Input.GetButtonDown("Pickup"))
         {
+            m_AudioSource.Play();
             FindObjectOfType<Inventory>().SetKeyAt(keyIndex);
             GameObject.FindGameObjectWithTag("hint").GetComponent<TextMeshProUGUI>().text = "";
             GameObject.FindGameObjectWithTag("object_infor").GetComponent<TextMeshProUGUI>().text = "";

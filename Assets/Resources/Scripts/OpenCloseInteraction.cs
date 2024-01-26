@@ -7,15 +7,18 @@ using UnityEngine;
 
 public class OpenCloseInteraction : MonoBehaviour
 {
-    [SerializeField] Animator anim;
-    [SerializeField] Inventory inventory;
+    [SerializeField] AudioSource m_AudioSource;
+    Animator anim;
+    Inventory inventory;
     public Inventory.KeyIndex requiredKey;
+
 
     private bool _isOpen = false;
     private bool flag = false;
 
     private void Awake()
     {
+        m_AudioSource.playOnAwake = false;
         anim = GetComponent<Animator>();
         inventory = FindAnyObjectByType<Inventory>();
     }
@@ -45,6 +48,7 @@ public class OpenCloseInteraction : MonoBehaviour
             {
                 anim.SetBool("Open", !_isOpen);
                 _isOpen = !_isOpen;
+                m_AudioSource.Play();
             } 
         }
     }

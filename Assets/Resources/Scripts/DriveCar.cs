@@ -12,7 +12,7 @@ public class DriveCar : MonoBehaviour
     {
         if (flag && Input.GetButtonDown("Interact"))
         {
-            SceneManager.LoadScene(1);
+            FindAnyObjectByType<LoadingScreen>().LoadScene(2);
         }
     }
 

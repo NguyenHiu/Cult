@@ -6,7 +6,8 @@ using UnityTutorial.PlayerControl;
 
 public class HandAnimation : MonoBehaviour
 {
-    [SerializeField] Animator anim;
+    /*
+     * [SerializeField] Animator anim;
     private FlashlightControl flashlightControl;
     private bool _leftArmActive = false;
     private bool _rightArmActive = false;
@@ -45,4 +46,9 @@ public class HandAnimation : MonoBehaviour
         }
 
     }
+     * 
+     * 
+     * 
+     * 
+     */
 }

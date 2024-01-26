@@ -1,27 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 using UnityTutorial.PlayerControl;
 
 public class NoteInteraction : MonoBehaviour
 {
     [SerializeField] GameObject note;
+    [SerializeField] AudioSource audioSource;
     private bool isOpen = false;
     private bool flag = false;
 
+    private void Awake()
+    {
+        audioSource.playOnAwake = false;
+    }
+
     private void Update()
     {
-        Debug.Log("flag: " + flag);
         if (flag && Input.GetButtonDown("Interact"))
         {
             if (isOpen)
             {
                 isOpen = false;
-                FindAnyObjectByType<PlayerController>().UnFreeze();
+                FindAnyObjectByType<FirstPersonController>().enabled = true;
             } else
             {
                 isOpen = true;
-                FindAnyObjectByType<PlayerController>().Freeze();
+                audioSource.Play();
+                FindAnyObjectByType<FirstPersonController>().enabled = false;
             }
             note.SetActive(isOpen);
         }
