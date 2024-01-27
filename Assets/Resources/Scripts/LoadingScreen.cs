@@ -6,7 +6,12 @@ using UnityEngine.SceneManagement;
 public class LoadingScreen : MonoBehaviour
 {
     [SerializeField] GameObject MyLoadingScene;
-     
+
+    private void Start()
+    {
+        MyLoadingScene = transform.GetChild(0).gameObject;
+    }
+
     public void LoadScene(int sceneId)
     {
         StartCoroutine(LoadSceneAsync(sceneId));

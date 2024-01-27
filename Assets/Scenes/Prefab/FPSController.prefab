@@ -372,7 +372,6 @@ GameObject:
   - component: {fileID: 4327778682383812688}
   - component: {fileID: 7074803838206539368}
   - component: {fileID: 2638823052164204233}
-  - component: {fileID: 1043952390140741571}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: player
@@ -395,7 +394,7 @@ Transform:
   - {fileID: 8207090050182436628}
   - {fileID: 7893203576760987075}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &6477749911122264387
 CharacterController:
@@ -669,20 +668,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1043952390140741571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5288292127076697464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 047c39a2eeff7ca4dbe80de5cd06a4ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashlight: {fileID: 0}
-  turnOn: {fileID: 0}
-  turnOff: {fileID: 0}
-  on: 0
-  IsPickedUp: 0

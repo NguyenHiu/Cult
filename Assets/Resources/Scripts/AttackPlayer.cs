@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackPlayer : MonoBehaviour
 {
     [SerializeField] GameObject die;
+    [SerializeField] LoadingScreen loadingScreen;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("player"))
@@ -18,6 +19,6 @@ public class AttackPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
 
-        FindAnyObjectByType<LoadingScreen>().LoadScene(0);
+        loadingScreen.LoadScene(0);
     }
 }

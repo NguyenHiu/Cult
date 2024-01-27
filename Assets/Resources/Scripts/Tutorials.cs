@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,7 +9,7 @@ public class Tutorials : MonoBehaviour
 
     private void Start()
     {
-        textField.text = "Press [F] to use Flashlight";
+        textField.text = "Nhấn [F] để mở đèn pin";
     }
 
     private void Update()

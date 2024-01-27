@@ -19,7 +19,7 @@ public class Win : MonoBehaviour
 
     IEnumerator WAITING()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         StartCoroutine(RESTART());
     }
 
